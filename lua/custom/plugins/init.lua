@@ -5,4 +5,5 @@
 return {
   { 'windwp/nvim-autopairs', opts = {} },
   { 'Pocco81/auto-save.nvim' },
+  { "voldikss/vim-floaterm" },
 }
