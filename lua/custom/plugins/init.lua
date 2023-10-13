@@ -6,4 +6,15 @@ return {
   { 'windwp/nvim-autopairs', opts = {} },
   { 'Pocco81/auto-save.nvim' },
   { "voldikss/vim-floaterm" },
+  {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("nvim-tree").setup {}
+    end,
+  },
 }
