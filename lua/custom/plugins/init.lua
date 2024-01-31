@@ -17,4 +17,6 @@ return {
       require("nvim-tree").setup {}
     end,
   },
+  { 'mg979/vim-visual-multi' },
+  { 'sbdchd/neoformat' },
 }
