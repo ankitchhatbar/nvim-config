@@ -323,11 +323,7 @@ require('telescope').setup {
 pcall(require('telescope').load_extension, 'fzf')
 
 -- See `:help telescope.builtin`
-vim.keymap.set('n', '<leader><space>', function() 
-  require('telescope.builtin').oldfiles {
-    on_complete = { function() vim.cmd"stopinsert" end }
-  }
-end, { desc = 'Find recently opened files' })
+vim.keymap.set('n', '<leader><space>', function() require('telescope').extensions.smart_open.smart_open({cwd_only = true}) end, { desc = 'Seaerch Files' })
 
 vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { desc = '[F]ind existing [B]uffers' })
 vim.keymap.set('n', '<leader>/', function()
