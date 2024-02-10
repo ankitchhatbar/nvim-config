@@ -112,6 +112,8 @@ require('lazy').setup({
 
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
+
+      'hrsh7th/cmp-nvim-lsp-signature-help',
     },
   },
 
@@ -555,7 +557,7 @@ cmp.setup {
     },
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
-        cmp.select_next_item()
+        cmp.confirm({select = true})
       elseif luasnip.expand_or_locally_jumpable() then
         luasnip.expand_or_jump()
       else
@@ -575,6 +577,7 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'nvim_lsp_signature_help' },
   },
 }
 
