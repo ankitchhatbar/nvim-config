@@ -18,5 +18,5 @@ return {
     end,
   },
   { 'mg979/vim-visual-multi' },
-  { 'sbdchd/neoformat' },
+  { 'prettier/vim-prettier' },
 }
