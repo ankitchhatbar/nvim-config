@@ -348,7 +348,7 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'graphql', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
+    ensure_installed = { 'c', 'cpp', 'go', 'graphql', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'svelte' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
@@ -461,6 +461,8 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
+
+  nmap('<leader>=', vim.lsp.buf.format, "Format Document")
 end
 
 -- document existing key chains
@@ -494,6 +496,15 @@ local servers = {
   -- rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+  pylsp = {
+    pylsp = {
+      plugins = {
+        pycodestyle = { maxLineLength = 180 },
+        -- rope_autoimport = { enabled = true },
+        black = { line_length = 180 },
+      },
+    }
+  },
 
   lua_ls = {
     Lua = {
@@ -579,6 +590,10 @@ cmp.setup {
 
 -- Custom config below. Custom added plugins are in the plugin manager config
 vim.o.relativenumber = true;
+vim.o.tabstop = 4
+vim.o.expandtab = true
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<leader>gg', ':FloatermNew --width=0.9 --height=0.9 lazygit<CR>', {desc = "LazyGit"})
