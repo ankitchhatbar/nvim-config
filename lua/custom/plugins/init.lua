@@ -30,5 +30,6 @@ return {
       -- Only required if using match_algorithm fzf
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
-  }
+  },
+  { "windwp/nvim-ts-autotag", opts = {} },
 }
